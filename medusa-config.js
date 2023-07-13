@@ -49,10 +49,19 @@ const plugins = [
       autoRebuild: true,
     },
   },
+  {
+    resolve: `medusa-plugin-strapi`,
+    options: {
+      strapi_medusa_user: process.env.STRAPI_USER,
+      strapi_medusa_password: process.env.STRAPI_PASSWORD,
+      strapi_url: process.env.STRAPI_URL, // optional
+      strapi_port: process.env.STRAPI_PORT, // optional
+      strapi_protocol: process.env.STRAPI_PROTOCOL, // optional
+  },}
 ];
 
 const modules = {
-  /*eventBus: {
+  eventBus: {
     resolve: "@medusajs/event-bus-redis",
     options: {
       redisUrl: REDIS_URL
@@ -63,7 +72,7 @@ const modules = {
     options: {
       redisUrl: REDIS_URL
     }
-  },*/
+  },
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule["projectConfig"]} */
@@ -74,7 +83,7 @@ const projectConfig = {
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
   // Uncomment the following lines to enable REDIS
-  // redis_url: REDIS_URL
+  redis_url: REDIS_URL
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
