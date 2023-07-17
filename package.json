@@ -40,6 +40,7 @@
     "medusa-payment-manual": "^1.0.23",
     "medusa-payment-stripe": "^6.0.0",
     "medusa-plugin-strapi": "^1.0.8-dev",
+    "medusa-plugin-strapi-ts": "^4.4.13",
     "typeorm": "^0.3.16"
   },
   "devDependencies": {
