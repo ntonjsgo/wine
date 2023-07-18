@@ -9,7 +9,7 @@ import { PriceList } from "./price-list"
 @Entity()
 export class SalesChannel extends MedusaSalesChannel {
 
-    @OneToMany(()=> PriceList, (pl) => pl?.sales_channel, {
+    @OneToMany(()=> PriceList, (pl) => pl.sales_channel, {
         onDelete: "CASCADE"
     })
     price_lists: PriceList[]

@@ -8,6 +8,8 @@ import {
 export class Product extends MedusaProduct {
   @Column()
   year: number
+  @Column()
   alchool: number
+  @Column()
   grape: string
 }
