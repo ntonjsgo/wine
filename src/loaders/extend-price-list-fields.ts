@@ -1,9 +1,10 @@
 
 import { registerOverriddenValidators } from '@medusajs/medusa';
 import { AdminPostPriceListsPriceListReq as MedusaAdminPostPriceListsPriceListReq } from '@medusajs/medusa/dist/api/routes/admin/price-lists/create-price-list';
-import { IsString } from 'class-validator';
-
-
+import { IsString, IsOptional } from 'class-validator';
+import { registerExtendedValidator } from 'utils/register-extended-validator';
+import { AdminPostPriceListsPriceListPriceListReq as MedusaAdminUpdatePriceList} from '@medusajs/medusa/dist/api/routes/admin/price-lists/update-price-list';
+import { isPromise } from 'util/types';
 
 export default async function () {
     const imports = (await import(
@@ -18,16 +19,23 @@ export default async function () {
     ]
   }
 
-/*
+
 
 class AdminPostPriceListsPriceListReq extends MedusaAdminPostPriceListsPriceListReq {
   @IsString()
-  sales_channel: string;
-  @IsString()
-  sales_channel_id: string ;
+  @IsOptional()
+  sales_channel_id?: string ;
 }
 
+class AdminPostPriceListsPriceListPriceListReq extends MedusaAdminUpdatePriceList {
+  @IsString()
+  @IsOptional()
+  sales_channel_id?: string ;
+}
+
+
 registerOverriddenValidators(AdminPostPriceListsPriceListReq);
+registerOverriddenValidators(AdminPostPriceListsPriceListPriceListReq);
 /*
 export default async function () {
   const adminImports = (await import(
