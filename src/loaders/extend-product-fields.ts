@@ -10,4 +10,9 @@ export default async function () {
       ...imports.defaultStoreProductsFields,
       "grape","alchool","year"
     ]
+
+
+    const adminImports = (await import("@medusajs/medusa/dist/api/routes/admin/products/index")) as any
+
+    adminImports.defaultAdminProductFields = [...adminImports.defaultAdminProductFields, "grape", "alchool", "year"]
   }
