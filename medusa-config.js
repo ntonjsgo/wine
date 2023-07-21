@@ -50,13 +50,20 @@ const plugins = [
     },
   },
   {
-    resolve: `medusa-plugin-strapi`,
+    resolve: `medusa-plugin-strapi-ts`,
     options: {
-      strapi_medusa_user: process.env.STRAPI_USER,
-      strapi_medusa_password: process.env.STRAPI_PASSWORD,
-      strapi_url: process.env.STRAPI_URL, // optional
-      strapi_port: process.env.STRAPI_PORT, // optional
-      strapi_protocol: process.env.STRAPI_PROTOCOL, // optional
+      strapi_default_user: {
+        username: process?.env?.STRAPI_USER,
+        password: process?.env?.STRAPI_PASSWORD,
+        email: process?.env?.STRAPI_EMAIL,
+        confirmed: true,
+        blocked: false,
+        provider: "local"
+      },
+    strapi_host: process?.env?.STRAPI_URL,
+    strapi_protocol: process?.env?.STRAPI_PROTOCOL,
+    strapi_port: process?.env?.STRAPI_PORT,
+    strapi_secret: process?.env?.JWT_SECRET,
   },}
 ];
 
