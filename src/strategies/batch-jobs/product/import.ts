@@ -1,6 +1,6 @@
 import {
     AbstractBatchJobStrategy,
-    BatchJobService, IFileService
+    BatchJobService
 } from "@medusajs/medusa"
 import { Product } from "../../../models/product"
 import { FlagRouter } from "@medusajs/medusa/dist/utils/flag-router"
@@ -23,6 +23,8 @@ import {
   } from "@medusajs/medusa/dist/strategies/batch-jobs/product/types/columns-definition"
  import { productImportColumnsDefinition } from "./types/columns-definition"
 
+ import { IFileService } from "@medusajs/medusa/dist/interfaces/file-service"
+
 class MyImportStrategy extends AbstractBatchJobStrategy {
 
 
@@ -41,8 +43,8 @@ class MyImportStrategy extends AbstractBatchJobStrategy {
 
     protected readonly featureFlagRouter_: FlagRouter
 
-    //protected manager_: EntityManager
-    //protected transactionManager_: EntityManager | undefined
+    protected manager_: EntityManager
+    protected transactionManager_: EntityManager | undefined
 
     protected readonly fileService_: IFileService
 
@@ -109,7 +111,7 @@ class MyImportStrategy extends AbstractBatchJobStrategy {
         this.featureFlagRouter_ = featureFlagRouter
 
         this.manager_ = manager
-        //this.fileService_ = fileService
+        this.fileService_ = fileService
         this.batchJobService_ = batchJobService
         this.productService_ = productService
         this.salesChannelService_ = salesChannelService
