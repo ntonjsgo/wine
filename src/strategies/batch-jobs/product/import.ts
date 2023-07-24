@@ -43,8 +43,8 @@ class MyImportStrategy extends AbstractBatchJobStrategy {
 
     protected readonly featureFlagRouter_: FlagRouter
 
-    protected manager_: EntityManager
-    protected transactionManager_: EntityManager | undefined
+   // protected manager_: EntityManager
+   // protected transactionManager_: EntityManager | undefined
 
     protected readonly fileService_: IFileService
 
@@ -111,7 +111,7 @@ class MyImportStrategy extends AbstractBatchJobStrategy {
         this.featureFlagRouter_ = featureFlagRouter
 
         this.manager_ = manager
-        this.fileService_ = fileService
+        //this.fileService_ = fileService
         this.batchJobService_ = batchJobService
         this.productService_ = productService
         this.salesChannelService_ = salesChannelService
