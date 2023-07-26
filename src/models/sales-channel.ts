@@ -12,7 +12,7 @@ export class SalesChannel extends MedusaSalesChannel {
     @OneToMany(()=> PriceList, (pl) => pl.sales_channel, {
         onDelete: "CASCADE"
     })
-    price_lists: PriceList[]
+    price_lists?: PriceList[]
 }
 
 

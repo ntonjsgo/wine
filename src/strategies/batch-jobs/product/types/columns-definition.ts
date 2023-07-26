@@ -713,7 +713,17 @@ export const productSalesChannelColumnsDefinition: ProductColumnDefinition = {
         },
     },
 
-
+    "Product Year": {
+        name: "Product Year",
+        importDescriptor: {
+            mapTo: "product.year",
+        },
+        exportDescriptor: {
+            accessor: (product: Product): string  => product?.year.toString() ?? "",
+            entityName: "product",
+        },
+    }, 
+    
     "Product Grape": {
         name: "Product Grape",
         importDescriptor: {
@@ -736,16 +746,7 @@ export const productSalesChannelColumnsDefinition: ProductColumnDefinition = {
         },
     },
 
-    "Product Year": {
-        name: "Product Year",
-        importDescriptor: {
-            mapTo: "product.year",
-        },
-        exportDescriptor: {
-            accessor: (product: Product): string  => product?.year.toString() ?? "",
-            entityName: "product",
-        },
-    }
+
 }
 
 export const productCategoriesColumnsDefinition: ProductColumnDefinition = {

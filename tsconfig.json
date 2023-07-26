@@ -14,7 +14,8 @@
     "sourceMap": false,
     "outDir": "./dist",
     "rootDir": "src",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "useDefineForClassFields": false,
   },
   "include": ["src"],
   "exclude": [
