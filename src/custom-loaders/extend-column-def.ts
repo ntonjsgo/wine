@@ -1,12 +1,18 @@
 import { Product } from "models/product"
 
 export default async function () {
-    let columnsDefinition = (await import(
+    let importedFile = (await import(
         "@medusajs/medusa/dist/strategies/batch-jobs/product/types/columns-definition"
     )) as any
-    columnsDefinition = { ...columnsDefinition, ...year, ...grape, ...alchool}
-
+    importedFile.productColumnsDefinition = { ...importedFile.productColumnsDefinition, ...year, ...grape, ...alchool}
+    importedFile.productImportColumnsDefinition.columns = [...importedFile.productImportColumnsDefinition.columns, ...extendedColumns]
 }
+
+const extendedColumns = [
+    { name: 'Product Year', mapTo: 'product.year' },
+    { name: 'Product Grape', mapTo: 'product.grape' },
+    { name: 'Product Alchool', mapTo: 'product.alchool' },
+]
 
 let year = {
     "Product Year": {

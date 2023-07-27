@@ -2,9 +2,12 @@ const express = require("express")
 const { GracefulShutdownServer } = require("medusa-core-utils")
 
 const loaders = require("@medusajs/medusa/dist/loaders/index").default
+const extendColumnDefinition = require("./dist/custom-loaders/extend-column-def").default
 
 ;(async() => {
   async function start() {
+    extendColumnDefinition()
+
     const app = express()
     const directory = process.cwd()
 
